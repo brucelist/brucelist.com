@@ -581,3 +581,7 @@ ul.icon li span {
   line-height: 26px;
   margin-bottom: 15px;
 }
+
+.commercial-logo {
+  max-width: 75px;
+}
