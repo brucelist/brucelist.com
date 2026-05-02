@@ -6,7 +6,7 @@ How to keep the site current. Every updatable thing on the site is listed below 
 
 Paste this prompt to AI assistant to start an update session:
 
-> Read `update.md`. Ask me which item(s) I want to update from the menu (1–10 or "all"). For each chosen item, walk me through it: tell me what data you need, fetch what you can yourself (e.g. from CREB), and edit the files. Open a PR — don't push to main. When done, summarize what changed.
+> Read `refresh.md`. Ask me which item(s) I want to update from the menu (1–10 or "all"). For each chosen item, walk me through it: tell me what data you need, fetch what you can yourself (e.g. from CREB), and edit the files. Open a PR — don't push to main. When done, summarize what changed.
 
 The menu AI assistant will offer:
 
