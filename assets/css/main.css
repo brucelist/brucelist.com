@@ -1052,3 +1052,286 @@ ul.icon li span {
     font-size: 26px;
   }
 }
+
+/* ==================== Smart Call Modal ==================== */
+.call-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1080;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.call-modal.is-open {
+  display: flex;
+  animation: callModalFadeIn 0.18s ease-out;
+}
+
+.call-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 24, 40, 0.55);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.call-modal-dialog {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 24px 60px rgba(8, 24, 40, 0.28),
+              0 4px 12px rgba(8, 24, 40, 0.12);
+  padding: 32px 28px 26px;
+  font-family: 'Jost', sans-serif;
+  animation: callModalRise 0.22s ease-out;
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+}
+
+.call-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: transparent;
+  color: #888;
+  font-size: 28px;
+  line-height: 1;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.call-modal-close:hover,
+.call-modal-close:focus {
+  background: #f4f6f9;
+  color: #081828;
+  outline: none;
+}
+
+.call-modal-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #081828;
+  margin: 0 0 6px;
+}
+
+.call-modal-sub {
+  color: #6c757d;
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.call-modal-phone {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: linear-gradient(135deg, #081828 0%, #1a3650 100%);
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-bottom: 18px;
+}
+
+.call-modal-number {
+  color: #fff !important;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  font-family: 'Jost', sans-serif;
+}
+
+.call-modal-number:hover,
+.call-modal-number:focus {
+  color: #fff !important;
+  text-decoration: underline;
+}
+
+.call-modal-copy {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-family: 'Jost', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.call-modal-copy:hover,
+.call-modal-copy:focus {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.7);
+  outline: none;
+}
+
+.call-modal-copy.copied {
+  background: #25d366;
+  border-color: #25d366;
+}
+
+.call-modal-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.call-modal-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-family: 'Jost', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.call-modal-whatsapp {
+  background: #25d366;
+  color: #fff !important;
+}
+
+.call-modal-whatsapp:hover,
+.call-modal-whatsapp:focus {
+  background: #1ebe5a;
+  color: #fff !important;
+  transform: translateY(-1px);
+}
+
+.call-modal-whatsapp svg {
+  width: 18px;
+  height: 18px;
+  fill: #fff;
+}
+
+.call-modal-email {
+  background: #fff;
+  color: #081828 !important;
+  border-color: #d6dde5;
+}
+
+.call-modal-email:hover,
+.call-modal-email:focus {
+  background: #f4f6f9;
+  color: #081828 !important;
+  border-color: #1a3650;
+  transform: translateY(-1px);
+}
+
+.call-modal-divider {
+  position: relative;
+  text-align: center;
+  margin: 6px 0 16px;
+  font-family: 'Lato', sans-serif;
+  font-size: 13px;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.call-modal-divider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #e3e7ed;
+}
+
+.call-modal-divider span {
+  position: relative;
+  background: #fff;
+  padding: 0 12px;
+}
+
+.call-modal-form .form-label {
+  font-family: 'Lato', sans-serif;
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+.call-modal-form .form-control {
+  border-radius: 8px;
+  border: 1px solid #d6dde5;
+  padding: 10px 12px;
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+}
+
+.call-modal-form .form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(249, 115, 82, 0.15);
+}
+
+.call-modal-form .btn-primary-brand {
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 15px;
+  margin-top: 4px;
+}
+
+.call-modal-feedback:empty {
+  display: none;
+}
+
+body.call-modal-open {
+  overflow: hidden;
+}
+
+@keyframes callModalFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes callModalRise {
+  from { opacity: 0; transform: translateY(12px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Mobile: bottom-sheet style */
+@media (max-width: 575px) {
+  .call-modal {
+    padding: 0;
+    align-items: flex-end;
+  }
+
+  .call-modal-dialog {
+    max-width: 100%;
+    border-radius: 18px 18px 0 0;
+    padding: 26px 20px 22px;
+    max-height: 92vh;
+    animation: callModalSheetUp 0.24s ease-out;
+  }
+
+  .call-modal-number {
+    font-size: 24px;
+  }
+
+  .call-modal-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+@keyframes callModalSheetUp {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
