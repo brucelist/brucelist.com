@@ -1,4 +1,4 @@
-/* Smart Call Button — on touch devices, let tel: links dial.
+/* Smart Call Button, on touch devices, let tel: links dial.
    On desktops, intercept the click and show a modal with a copyable phone
    number, WhatsApp shortcut, email link, and a callback request form. */
 (function () {
@@ -111,7 +111,7 @@
       copyPhone();
     });
 
-    // Email button — try mailto:, fall back to contact form if no mail client.
+    // Email button, try mailto:, fall back to contact form if no mail client.
     var emailBtn = modal.querySelector('.call-modal-email');
     if (emailBtn) {
       emailBtn.addEventListener('click', function (e) {
@@ -141,7 +141,7 @@
       window.removeEventListener('blur', onBlur);
       if (didBlur) return;
 
-      // No mail client took focus — fall back to the contact form.
+      // No mail client took focus, fall back to the contact form.
       closeModal();
       var contactOnPage = document.getElementById('contact');
       if (contactOnPage) {
@@ -151,7 +151,7 @@
           setTimeout(function () { firstInput.focus({ preventScroll: true }); }, 700);
         }
       } else {
-        // No contact section on this page — go to the homepage's contact form.
+        // No contact section on this page, go to the homepage's contact form.
         window.location.href = '/#contact';
       }
     }, 1200);

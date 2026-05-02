@@ -1,4 +1,4 @@
-/* Lead capture forms — AJAX submission to Formspree with inline feedback. */
+/* Lead capture forms, AJAX submission to Formspree with inline feedback. */
 (function () {
   'use strict';
 
