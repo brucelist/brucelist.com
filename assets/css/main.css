@@ -129,6 +129,13 @@ ol {
   position: relative;
 }
 
+@media (max-width: 767px) {
+  .section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+}
+
 .section-title {
   text-align: center;
   margin-bottom: 20px;
@@ -797,82 +804,6 @@ ul.icon li span {
   font-family: 'Lato', sans-serif;
 }
 
-/* Buyer guide / lead magnet */
-.buyer-guide {
-  background: linear-gradient(135deg, #081828 0%, #1a3650 100%);
-  padding: 70px 0;
-  color: #fff;
-}
-
-.buyer-guide h2 {
-  color: #fff;
-  font-weight: 700;
-  margin-bottom: 12px;
-}
-
-.buyer-guide p {
-  color: #d8e0e9;
-  font-size: 16px;
-  margin-bottom: 24px;
-}
-
-.buyer-guide .form-control {
-  border-radius: 4px;
-  border: none;
-  padding: 12px 14px;
-}
-
-.buyer-guide .btn-primary-brand {
-  width: 100%;
-}
-
-/* WhatsApp floating button */
-.whatsapp-float {
-  position: fixed;
-  bottom: 30px;
-  right: 90px;
-  width: 56px;
-  height: 56px;
-  background-color: #25d366;
-  color: #fff !important;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 28px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
-  z-index: 99;
-  transition: all 0.3s ease;
-  text-decoration: none;
-}
-
-.whatsapp-float:hover {
-  background-color: #1ebe5a;
-  color: #fff !important;
-  transform: translate3d(0, -3px, 0);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-}
-
-.whatsapp-float svg {
-  width: 30px;
-  height: 30px;
-  fill: #fff;
-}
-
-@media (max-width: 575px) {
-  .whatsapp-float {
-    right: 80px;
-    bottom: 25px;
-    width: 50px;
-    height: 50px;
-    font-size: 24px;
-  }
-  .whatsapp-float svg {
-    width: 26px;
-    height: 26px;
-  }
-}
-
 /* Multi-step home valuation form */
 .valuation-page {
   background-color: #f4f6f8;
@@ -1429,24 +1360,6 @@ ul.icon li span {
   border: 1px solid transparent;
 }
 
-.call-modal-whatsapp {
-  background: #25d366;
-  color: #fff !important;
-}
-
-.call-modal-whatsapp:hover,
-.call-modal-whatsapp:focus {
-  background: #1ebe5a;
-  color: #fff !important;
-  transform: translateY(-1px);
-}
-
-.call-modal-whatsapp svg {
-  width: 18px;
-  height: 18px;
-  fill: #fff;
-}
-
 .call-modal-email {
   background: #fff;
   color: #081828 !important;
@@ -1605,11 +1518,6 @@ body.call-modal-open {
 [dir="rtl"] .scroll-top {
   right: auto;
   left: 30px;
-}
-
-[dir="rtl"] .whatsapp-float {
-  right: auto;
-  left: 24px;
 }
 
 [dir="rtl"] .single-card .serial,
