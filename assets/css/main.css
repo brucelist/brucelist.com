@@ -1415,8 +1415,9 @@ body.call-modal-open {
 [dir="rtl"] a[href^="tel:"],
 [dir="rtl"] a[href^="mailto:"] {
   direction: ltr;
-  unicode-bidi: embed;
+  unicode-bidi: isolate;
   display: inline-block;
+  white-space: nowrap;
 }
 
 [dir="rtl"] .progress-steps {
