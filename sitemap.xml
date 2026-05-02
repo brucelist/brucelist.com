@@ -1,9 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
         <loc>https://brucelist.com/</loc>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="en-ca" href="https://brucelist.com/" />
+        <xhtml:link rel="alternate" hreflang="fa-ca" href="https://brucelist.com/fa/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://brucelist.com/" />
     </url>
-    <!-- NEIGHBORHOOD_PAGES: append <url> entries for each neighborhood landing page below this marker -->
+    <url>
+        <loc>https://brucelist.com/home-valuation.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en-ca" href="https://brucelist.com/home-valuation.html" />
+        <xhtml:link rel="alternate" hreflang="fa-ca" href="https://brucelist.com/fa/home-valuation.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://brucelist.com/home-valuation.html" />
+    </url>
+    <url>
+        <loc>https://brucelist.com/neighborhoods/</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en-ca" href="https://brucelist.com/neighborhoods/" />
+        <xhtml:link rel="alternate" hreflang="fa-ca" href="https://brucelist.com/fa/neighborhoods/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://brucelist.com/neighborhoods/" />
+    </url>
+    <url>
+        <loc>https://brucelist.com/neighborhoods/tuscany.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en-ca" href="https://brucelist.com/neighborhoods/tuscany.html" />
+        <xhtml:link rel="alternate" hreflang="fa-ca" href="https://brucelist.com/fa/neighborhoods/tuscany.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://brucelist.com/neighborhoods/tuscany.html" />
+    </url>
+    <url>
+        <loc>https://brucelist.com/neighborhoods/beltline.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en-ca" href="https://brucelist.com/neighborhoods/beltline.html" />
+        <xhtml:link rel="alternate" hreflang="fa-ca" href="https://brucelist.com/fa/neighborhoods/beltline.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://brucelist.com/neighborhoods/beltline.html" />
+    </url>
+    <url>
+        <loc>https://brucelist.com/neighborhoods/aspen-woods.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en-ca" href="https://brucelist.com/neighborhoods/aspen-woods.html" />
+        <xhtml:link rel="alternate" hreflang="fa-ca" href="https://brucelist.com/fa/neighborhoods/aspen-woods.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://brucelist.com/neighborhoods/aspen-woods.html" />
+    </url>
+    <url>
+        <loc>https://brucelist.com/neighborhoods/auburn-bay.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en-ca" href="https://brucelist.com/neighborhoods/auburn-bay.html" />
+        <xhtml:link rel="alternate" hreflang="fa-ca" href="https://brucelist.com/fa/neighborhoods/auburn-bay.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://brucelist.com/neighborhoods/auburn-bay.html" />
+    </url>
+    <url>
+        <loc>https://brucelist.com/fa/</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://brucelist.com/fa/home-valuation.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://brucelist.com/fa/neighborhoods/</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://brucelist.com/fa/neighborhoods/tuscany.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://brucelist.com/fa/neighborhoods/beltline.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://brucelist.com/fa/neighborhoods/aspen-woods.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://brucelist.com/fa/neighborhoods/auburn-bay.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
 </urlset>
