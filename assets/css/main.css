@@ -1335,3 +1335,90 @@ body.call-modal-open {
   from { transform: translateY(100%); }
   to   { transform: translateY(0); }
 }
+
+/* ==================== RTL / Farsi (fa-CA) overrides ==================== */
+[dir="rtl"] body,
+[dir="rtl"] p {
+  font-family: 'Vazirmatn', 'Jost', sans-serif;
+}
+
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] h5,
+[dir="rtl"] h6 {
+  font-family: 'Vazirmatn', 'Jost', sans-serif;
+}
+
+[dir="rtl"] .hero-text.text-left,
+[dir="rtl"] .align-left {
+  text-align: right;
+}
+
+[dir="rtl"] .float-md-end {
+  float: none !important;
+}
+
+@media (min-width: 768px) {
+  [dir="rtl"] .float-md-end {
+    float: left !important;
+  }
+}
+
+[dir="rtl"] .me-2 {
+  margin-right: 0 !important;
+  margin-left: 0.5rem !important;
+}
+
+[dir="rtl"] .ms-2 {
+  margin-left: 0 !important;
+  margin-right: 0.5rem !important;
+}
+
+[dir="rtl"] .scroll-top {
+  right: auto;
+  left: 30px;
+}
+
+[dir="rtl"] .whatsapp-float {
+  right: auto;
+  left: 24px;
+}
+
+[dir="rtl"] .single-card .serial,
+[dir="rtl"] .serial {
+  right: auto;
+  left: 20px;
+}
+
+[dir="rtl"] ul.icon li,
+[dir="rtl"] ul.skills li,
+[dir="rtl"] ul.questions li,
+[dir="rtl"] ul.commitment li {
+  padding-left: 0;
+  padding-right: 28px;
+  background-position: right center;
+}
+
+[dir="rtl"] .lang-switch {
+  margin-right: 0.5rem;
+  margin-left: 0;
+}
+
+/* Phone numbers should always render LTR even in RTL paragraphs */
+[dir="rtl"] .ltr,
+[dir="rtl"] a[href^="tel:"],
+[dir="rtl"] a[href^="mailto:"] {
+  direction: ltr;
+  unicode-bidi: embed;
+  display: inline-block;
+}
+
+[dir="rtl"] .progress-steps {
+  direction: rtl;
+}
+
+[dir="rtl"] .step-actions {
+  flex-direction: row-reverse;
+}
