@@ -10,6 +10,52 @@
   var PHONE_E164    = '+14038912345';
   var EMAIL_ADDR    = 'bruce@brucelist.com';
 
+  var STRINGS = {
+    en: {
+      close: 'Close',
+      title: 'Call Bruce',
+      sub: 'Tap a number to copy, send an email, or request a callback.',
+      copyPhone: 'Copy phone number',
+      copy: 'Copy',
+      copied: 'Copied!',
+      emailBtn: 'Email instead',
+      divider: 'or request a callback',
+      labelName: 'Name',
+      labelPhone: 'Phone',
+      labelTime: 'Best time to call',
+      placeholderTime: 'e.g. weekday evenings',
+      submitBtn: 'Request a Callback',
+      sending: 'Sending...',
+      success: "Thanks! Bruce will call you back, usually within a few hours.",
+      errorGeneric: 'Something went wrong. Please call ' + PHONE_DISPLAY + ' or try again.',
+      emailFallbackHint: 'Email did not open. Use the contact form below or call ' + PHONE_DISPLAY + '.'
+    },
+    fa: {
+      close: 'بستن',
+      title: 'تماس با بهروز',
+      sub: 'برای کپی شماره، ارسال ایمیل یا درخواست تماس برگشتی، از گزینه‌های زیر استفاده کنید.',
+      copyPhone: 'کپی شماره تلفن',
+      copy: 'کپی',
+      copied: 'کپی شد!',
+      emailBtn: 'ارسال ایمیل',
+      divider: 'یا درخواست تماس برگشتی',
+      labelName: 'نام',
+      labelPhone: 'تلفن',
+      labelTime: 'بهترین زمان برای تماس',
+      placeholderTime: 'مثلاً عصرهای روزهای کاری',
+      submitBtn: 'درخواست تماس برگشتی',
+      sending: 'در حال ارسال...',
+      success: 'متشکریم! بهروز معمولاً ظرف چند ساعت با شما تماس خواهد گرفت.',
+      errorGeneric: 'مشکلی پیش آمد. لطفاً با شماره ' + PHONE_DISPLAY + ' تماس بگیرید یا دوباره تلاش کنید.',
+      emailFallbackHint: 'ایمیل باز نشد. از فرم تماس زیر استفاده کنید یا با ' + PHONE_DISPLAY + ' تماس بگیرید.'
+    }
+  };
+
+  function getStrings() {
+    var lang = (document.documentElement.getAttribute('lang') || 'en').toLowerCase();
+    return lang.indexOf('fa') === 0 ? STRINGS.fa : STRINGS.en;
+  }
+
   var FOCUSABLE_SELECTOR = [
     'a[href]', 'button:not([disabled])', 'input:not([disabled])',
     'select:not([disabled])', 'textarea:not([disabled])',
@@ -35,6 +81,7 @@
 
   function buildModal() {
     if (modal) return modal;
+    var t = getStrings();
 
     modal = document.createElement('div');
     modal.className = 'call-modal';
@@ -46,40 +93,40 @@
 
     modal.innerHTML =
       '<div class="call-modal-backdrop" data-call-close></div>' +
-      '<div class="call-modal-dialog" role="document">' +
-        '<button type="button" class="call-modal-close" aria-label="Close" data-call-close>' +
+      '<div class="call-modal-dialog">' +
+        '<button type="button" class="call-modal-close" aria-label="' + t.close + '" data-call-close>' +
           '<span aria-hidden="true">&times;</span>' +
         '</button>' +
-        '<h3 id="callModalTitle" class="call-modal-title">Call Bruce</h3>' +
-        '<p class="call-modal-sub">Tap a number to copy, send an email, or request a callback.</p>' +
+        '<h3 id="callModalTitle" class="call-modal-title">' + t.title + '</h3>' +
+        '<p class="call-modal-sub">' + t.sub + '</p>' +
         '<div class="call-modal-phone">' +
-          '<a href="tel:' + PHONE_E164 + '" class="call-modal-number" data-call-number>' + PHONE_DISPLAY + '</a>' +
-          '<button type="button" class="call-modal-copy" data-call-copy aria-label="Copy phone number">' +
-            '<span class="call-copy-label">Copy</span>' +
+          '<a href="tel:' + PHONE_E164 + '" class="call-modal-number ltr" data-call-number>' + PHONE_DISPLAY + '</a>' +
+          '<button type="button" class="call-modal-copy" data-call-copy aria-label="' + t.copyPhone + '">' +
+            '<span class="call-copy-label">' + t.copy + '</span>' +
           '</button>' +
         '</div>' +
         '<div class="call-modal-actions">' +
           '<a href="mailto:' + EMAIL_ADDR + '" class="call-modal-btn call-modal-email">' +
-            '<i class="lni lni-envelope" aria-hidden="true"></i>Email instead' +
+            '<i class="lni lni-envelope" aria-hidden="true"></i>' + t.emailBtn +
           '</a>' +
         '</div>' +
-        '<div class="call-modal-divider"><span>or request a callback</span></div>' +
+        '<div class="call-modal-divider"><span>' + t.divider + '</span></div>' +
         '<form class="call-modal-form" novalidate>' +
           '<div class="row g-2">' +
             '<div class="col-md-6">' +
-              '<label for="cm-name" class="form-label">Name</label>' +
+              '<label for="cm-name" class="form-label">' + t.labelName + '</label>' +
               '<input type="text" class="form-control" id="cm-name" name="name" autocomplete="name" required>' +
             '</div>' +
             '<div class="col-md-6">' +
-              '<label for="cm-phone" class="form-label">Phone</label>' +
+              '<label for="cm-phone" class="form-label">' + t.labelPhone + '</label>' +
               '<input type="tel" class="form-control" id="cm-phone" name="phone" autocomplete="tel" required>' +
             '</div>' +
             '<div class="col-12">' +
-              '<label for="cm-time" class="form-label">Best time to call</label>' +
-              '<input type="text" class="form-control" id="cm-time" name="best_time" placeholder="e.g. weekday evenings">' +
+              '<label for="cm-time" class="form-label">' + t.labelTime + '</label>' +
+              '<input type="text" class="form-control" id="cm-time" name="best_time" placeholder="' + t.placeholderTime + '">' +
             '</div>' +
             '<div class="col-12 d-grid">' +
-              '<button type="submit" class="btn btn-primary-brand">Request a Callback</button>' +
+              '<button type="submit" class="btn btn-primary-brand">' + t.submitBtn + '</button>' +
             '</div>' +
           '</div>' +
           '<div class="form-feedback call-modal-feedback" aria-live="polite"></div>' +
@@ -153,13 +200,14 @@
   }
 
   function copyPhone() {
+    var t = getStrings();
     var label = copyBtn.querySelector('.call-copy-label');
     var done = function () {
       copyBtn.classList.add('copied');
-      label.textContent = 'Copied!';
+      label.textContent = t.copied;
       setTimeout(function () {
         copyBtn.classList.remove('copied');
-        label.textContent = 'Copy';
+        label.textContent = t.copy;
       }, 2000);
     };
 
@@ -182,13 +230,13 @@
         document.body.removeChild(ta);
         done();
       } catch (err) {
-        label.textContent = 'Copy failed';
-        setTimeout(function () { label.textContent = 'Copy'; }, 2000);
+        label.textContent = t.copy;
       }
     }
   }
 
   function submitCallback(form) {
+    var t = getStrings();
     var feedback = form.querySelector('.form-feedback');
     feedback.innerHTML = '';
 
@@ -205,7 +253,7 @@
 
     if (submitBtn) {
       submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending...';
+      submitBtn.textContent = t.sending;
     }
 
     var formData = new FormData(form);
@@ -218,16 +266,13 @@
     }).then(function (response) {
       if (response.ok) {
         form.reset();
-        showFeedback(feedback, 'success',
-          "Thanks! Bruce will call you back soon.");
+        showFeedback(feedback, 'success', t.success);
       } else {
-        showFeedback(feedback, 'error',
-          'Something went wrong. Please call ' + PHONE_DISPLAY + '.');
+        showFeedback(feedback, 'error', t.errorGeneric);
       }
     }).catch(function () {
-      showFeedback(feedback, 'error',
-        'Network error. Please call ' + PHONE_DISPLAY + '.');
-    }).then(function () {
+      showFeedback(feedback, 'error', t.errorGeneric);
+    }).finally(function () {
       if (submitBtn) {
         submitBtn.disabled = false;
         submitBtn.textContent = originalLabel;
