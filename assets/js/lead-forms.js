@@ -21,13 +21,6 @@
     var feedback = form.querySelector('.form-feedback');
     if (feedback) feedback.innerHTML = '';
 
-    // If the placeholder action is still in place, fail gracefully without a network call.
-    if (endpoint.indexOf('YOUR_FORM_ID') !== -1) {
-      showFeedback(form, 'error',
-        'This form is not yet connected. (Formspree endpoint not configured.)');
-      return;
-    }
-
     var submitBtn = form.querySelector('button[type="submit"]');
     var originalLabel = submitBtn ? submitBtn.textContent : '';
     if (submitBtn) {
