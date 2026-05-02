@@ -589,3 +589,369 @@ ul.icon li span {
 .badge-logo {
   max-width: 100px;
 }
+
+/* ===== Lead capture ===== */
+.lead-form-section {
+  background-color: #fff;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.lead-form-section.compact {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background-color: #f9f9f9;
+}
+
+.lead-form-section .section-title h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  font-weight: 700;
+}
+
+.lead-form-section .section-title h2::before {
+  background: var(--primary-color);
+}
+
+.lead-form-section .section-title p {
+  font-family: 'Lato', sans-serif;
+  color: #666;
+}
+
+.lead-form-card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 40px;
+  box-shadow: 0 4px 20px rgba(8, 24, 40, 0.06);
+}
+
+.lead-form-section.compact .lead-form-card {
+  background: #fff;
+}
+
+.lead-form-card .form-label {
+  font-family: 'Jost', sans-serif;
+  font-weight: 500;
+  color: #081828;
+  margin-bottom: 6px;
+}
+
+.lead-form-card .form-control,
+.lead-form-card .form-select {
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  padding: 10px 14px;
+  font-family: 'Lato', sans-serif;
+  font-size: 15px;
+}
+
+.lead-form-card .form-control:focus,
+.lead-form-card .form-select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(249, 115, 82, 0.15);
+}
+
+.btn-primary-brand {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #fff;
+  font-family: 'Jost', sans-serif;
+  font-weight: 500;
+  padding: 12px 28px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary-brand:hover,
+.btn-primary-brand:focus {
+  background-color: #081828;
+  border-color: #081828;
+  color: #fff;
+}
+
+.form-success-msg {
+  background-color: #e7f5ee;
+  color: #1a6e3f;
+  border: 1px solid #b7dfc6;
+  border-radius: 4px;
+  padding: 14px 18px;
+  margin-top: 14px;
+  font-family: 'Lato', sans-serif;
+}
+
+.form-error-msg {
+  background-color: #fdecea;
+  color: #a8261d;
+  border: 1px solid #f3c2bd;
+  border-radius: 4px;
+  padding: 14px 18px;
+  margin-top: 14px;
+  font-family: 'Lato', sans-serif;
+}
+
+/* Buyer guide / lead magnet */
+.buyer-guide {
+  background: linear-gradient(135deg, #081828 0%, #1a3650 100%);
+  padding: 70px 0;
+  color: #fff;
+}
+
+.buyer-guide h2 {
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.buyer-guide p {
+  color: #d8e0e9;
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+
+.buyer-guide .form-control {
+  border-radius: 4px;
+  border: none;
+  padding: 12px 14px;
+}
+
+.buyer-guide .btn-primary-brand {
+  width: 100%;
+}
+
+/* WhatsApp floating button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 30px;
+  right: 90px;
+  width: 56px;
+  height: 56px;
+  background-color: #25d366;
+  color: #fff !important;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  z-index: 99;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.whatsapp-float:hover {
+  background-color: #1ebe5a;
+  color: #fff !important;
+  transform: translate3d(0, -3px, 0);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.whatsapp-float svg {
+  width: 30px;
+  height: 30px;
+  fill: #fff;
+}
+
+@media (max-width: 575px) {
+  .whatsapp-float {
+    right: 80px;
+    bottom: 25px;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+  .whatsapp-float svg {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+/* Multi-step home valuation form */
+.valuation-page {
+  background-color: #f4f6f8;
+  min-height: 100vh;
+}
+
+.valuation-hero {
+  background: linear-gradient(135deg, #081828 0%, #1a3650 100%);
+  color: #fff;
+  padding: 80px 0 60px;
+  text-align: center;
+}
+
+.valuation-hero h1 {
+  color: #fff;
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.valuation-hero p {
+  color: #d8e0e9;
+  font-size: 18px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.valuation-wrapper {
+  margin-top: -40px;
+  margin-bottom: 80px;
+  position: relative;
+  z-index: 2;
+}
+
+.valuation-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 0 10px 40px rgba(8, 24, 40, 0.1);
+}
+
+.progress-steps {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 36px;
+  position: relative;
+}
+
+.progress-steps::before {
+  content: "";
+  position: absolute;
+  top: 18px;
+  left: 8%;
+  right: 8%;
+  height: 3px;
+  background: #e6e8ec;
+  z-index: 0;
+}
+
+.progress-steps .step {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  flex: 1;
+}
+
+.progress-steps .step .circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #e6e8ec;
+  color: #888;
+  font-weight: 600;
+  font-family: 'Jost', sans-serif;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #fff;
+  transition: all 0.3s ease;
+}
+
+.progress-steps .step.active .circle,
+.progress-steps .step.complete .circle {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.progress-steps .step .label {
+  display: block;
+  font-size: 13px;
+  margin-top: 8px;
+  color: #888;
+  font-family: 'Jost', sans-serif;
+  font-weight: 500;
+}
+
+.progress-steps .step.active .label,
+.progress-steps .step.complete .label {
+  color: #081828;
+}
+
+.valuation-step {
+  display: none;
+}
+
+.valuation-step.active {
+  display: block;
+}
+
+.valuation-step h2 {
+  font-size: 26px;
+  margin-bottom: 8px;
+  color: #081828;
+}
+
+.valuation-step .step-intro {
+  font-family: 'Lato', sans-serif;
+  color: #666;
+  margin-bottom: 22px;
+  font-size: 15px;
+}
+
+.step-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 28px;
+  gap: 12px;
+}
+
+.btn-secondary-brand {
+  background: #fff;
+  border: 1px solid #ddd;
+  color: #081828;
+  font-family: 'Jost', sans-serif;
+  font-weight: 500;
+  padding: 12px 28px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary-brand:hover {
+  background: #f4f6f8;
+  border-color: #081828;
+}
+
+.valuation-success {
+  text-align: center;
+  padding: 30px 10px;
+}
+
+.valuation-success .check-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #e7f5ee;
+  color: #1a6e3f;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.valuation-success h2 {
+  font-size: 28px;
+  margin-bottom: 12px;
+  color: #081828;
+}
+
+.valuation-success p {
+  font-size: 16px;
+  line-height: 26px;
+  color: #666;
+}
+
+@media (max-width: 575px) {
+  .lead-form-card,
+  .valuation-card {
+    padding: 24px;
+  }
+  .progress-steps .step .label {
+    font-size: 11px;
+  }
+  .valuation-hero h1 {
+    font-size: 32px;
+  }
+}

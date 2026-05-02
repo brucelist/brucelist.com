@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>What's My Home Worth? | Bruce Lotfi — Calgary REALTOR&reg;</title>
+    <meta name="description"
+        content="Get a free, no-obligation home valuation from Bruce Lotfi, an experienced Calgary REALTOR with over 20 years of local market expertise." />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" type="image/x-icon" href="assets/ico/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/ico/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/ico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/ico/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/LineIcons.2.0.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+
+<body class="valuation-page">
+    <header class="header navbar-area bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12 p-1 lead">
+                    <a href="index.html" class="link-secondary text-decoration-none">Bruce Behrouz Lotfi</a>
+                    <span class="float-md-end"><a href="tel:+14038912345" class="link-secondary">Call Bruce:
+                            403-891-2345</a> | <a href="mailto:bruce@brucelist.com"
+                            class="link-secondary">bruce@brucelist.com</a></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="valuation-hero" style="padding-top: 140px;">
+        <div class="container">
+            <h1>What's My Home Worth?</h1>
+            <p>Get a free, no-obligation valuation from a Calgary REALTOR&reg; with over 20 years of local market
+                experience. It takes about 60 seconds.</p>
+        </div>
+    </section>
+
+    <section class="valuation-wrapper">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-10 col-12">
+                    <div class="valuation-card">
+                        <div class="progress-steps" id="progressSteps">
+                            <div class="step active" data-step="1">
+                                <span class="circle">1</span>
+                                <span class="label">Address</span>
+                            </div>
+                            <div class="step" data-step="2">
+                                <span class="circle">2</span>
+                                <span class="label">Home Details</span>
+                            </div>
+                            <div class="step" data-step="3">
+                                <span class="circle">3</span>
+                                <span class="label">Contact</span>
+                            </div>
+                        </div>
+
+                        <!-- TODO: Replace YOUR_FORM_ID with real Formspree form ID -->
+                        <form id="valuationForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST"
+                            data-form-name="Home Valuation Request" novalidate>
+
+                            <div class="valuation-step active" data-step="1">
+                                <h2>Where is the property?</h2>
+                                <p class="step-intro">Tell us about the home you'd like valued.</p>
+                                <div class="row g-3">
+                                    <div class="col-12">
+                                        <label for="v-address" class="form-label">Street address</label>
+                                        <input type="text" class="form-control" id="v-address" name="address"
+                                            placeholder="123 Main St SW" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="v-city" class="form-label">City</label>
+                                        <input type="text" class="form-control" id="v-city" name="city" value="Calgary">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="v-postal" class="form-label">Postal code</label>
+                                        <input type="text" class="form-control" id="v-postal" name="postal_code"
+                                            placeholder="T3B 4Z1">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="v-property-type" class="form-label">Property type</label>
+                                        <select class="form-select" id="v-property-type" name="property_type">
+                                            <option value="Detached">Detached house</option>
+                                            <option value="Semi-detached">Semi-detached</option>
+                                            <option value="Townhouse">Townhouse</option>
+                                            <option value="Condo">Condo / Apartment</option>
+                                            <option value="Commercial">Commercial</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="step-actions">
+                                    <span></span>
+                                    <button type="button" class="btn btn-primary-brand" data-action="next">Next</button>
+                                </div>
+                            </div>
+
+                            <div class="valuation-step" data-step="2">
+                                <h2>Tell us about the home</h2>
+                                <p class="step-intro">Approximate is fine — we'll confirm details when we follow up.</p>
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <label for="v-beds" class="form-label">Bedrooms</label>
+                                        <input type="number" min="0" max="20" class="form-control" id="v-beds"
+                                            name="bedrooms" placeholder="3" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="v-baths" class="form-label">Bathrooms</label>
+                                        <input type="number" min="0" max="20" step="0.5" class="form-control"
+                                            id="v-baths" name="bathrooms" placeholder="2.5" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="v-sqft" class="form-label">Square footage</label>
+                                        <input type="number" min="0" class="form-control" id="v-sqft" name="square_feet"
+                                            placeholder="1800" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="v-year" class="form-label">Year built (optional)</label>
+                                        <input type="number" min="1800" max="2100" class="form-control" id="v-year"
+                                            name="year_built" placeholder="2005">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="v-condition" class="form-label">Condition</label>
+                                        <select class="form-select" id="v-condition" name="condition">
+                                            <option value="Excellent">Excellent / recently renovated</option>
+                                            <option value="Good" selected>Good / move-in ready</option>
+                                            <option value="Average">Average / some updates needed</option>
+                                            <option value="Needs work">Needs significant work</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="step-actions">
+                                    <button type="button" class="btn btn-secondary-brand"
+                                        data-action="prev">Back</button>
+                                    <button type="button" class="btn btn-primary-brand" data-action="next">Next</button>
+                                </div>
+                            </div>
+
+                            <div class="valuation-step" data-step="3">
+                                <h2>Where should Bruce send the valuation?</h2>
+                                <p class="step-intro">Bruce will personally review your information and follow up with
+                                    a tailored estimate. No obligation, no spam.</p>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="v-name" class="form-label">Your name</label>
+                                        <input type="text" class="form-control" id="v-name" name="name" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="v-email" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="v-email" name="email" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="v-phone" class="form-label">Phone</label>
+                                        <input type="tel" class="form-control" id="v-phone" name="phone">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="v-timeline" class="form-label">When are you thinking of
+                                            selling?</label>
+                                        <select class="form-select" id="v-timeline" name="timeline">
+                                            <option value="ASAP">As soon as possible</option>
+                                            <option value="1-3 months">1–3 months</option>
+                                            <option value="3-6 months">3–6 months</option>
+                                            <option value="6-12 months">6–12 months</option>
+                                            <option value="Just curious" selected>Just curious for now</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="v-notes" class="form-label">Anything else? (optional)</label>
+                                        <textarea class="form-control" id="v-notes" name="notes" rows="3"
+                                            placeholder="Recent renos, basement development, special features..."></textarea>
+                                    </div>
+                                </div>
+                                <div class="step-actions">
+                                    <button type="button" class="btn btn-secondary-brand"
+                                        data-action="prev">Back</button>
+                                    <button type="submit" class="btn btn-primary-brand">Get My Valuation</button>
+                                </div>
+                            </div>
+
+                            <div class="valuation-step" data-step="success">
+                                <div class="valuation-success">
+                                    <div class="check-icon">
+                                        <i class="lni lni-checkmark"></i>
+                                    </div>
+                                    <h2>Thanks — your request is on its way to Bruce.</h2>
+                                    <p>Bruce will personally review your details and follow up shortly with a
+                                        tailored estimate. For anything urgent, call
+                                        <a href="tel:+14038912345">403-891-2345</a>.</p>
+                                </div>
+                            </div>
+
+                            <div class="form-feedback" aria-live="polite"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="calling-card section">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-4 col-md-12 col-12">
+                    <div class="content-left">
+                        <img src="assets/images/bruce.png" alt="Bruce Lotfi">
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-12 col-12">
+                    <div class="content-right">
+                        <h2>Bruce Behrouz Lotfi</h2>
+                        <h3>403-891-2345</h3>
+                        <p>REALTOR<sup>&reg;</sup>, Real Estate Professionals</p>
+                        <p>202, 5403 Crowchild Trail NW<br />Calgary, AB T3B 4Z1</p>
+                        <p><a href="mailto:bruce@brucelist.com">bruce@brucelist.com</a><br /><a
+                                href="https://brucelist.com">brucelist.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <a href="#" class="scroll-top btn-hover">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+
+    <a href="https://wa.me/14038912345?text=Hi%20Bruce%2C%20I%27d%20like%20a%20home%20valuation."
+        class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat with Bruce on WhatsApp">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+        </svg>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+    <script src="assets/js/lead-forms.js"></script>
+    <script src="assets/js/home-valuation.js"></script>
+</body>
+
+</html>
