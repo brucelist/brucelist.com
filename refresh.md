@@ -4,11 +4,11 @@ How to keep the site current. Every updatable thing on the site is listed below 
 
 ## Quick start — interactive update session
 
-Paste this prompt to AI assistant to start an update session:
+Paste this prompt to your AI assistant to start an update session:
 
 > Read `refresh.md`. Ask me which item(s) I want to update from the menu (1–10 or "all"). For each chosen item, walk me through it: tell me what data you need, fetch what you can yourself (e.g. from CREB), and edit the files. Open a PR — don't push to main. When done, summarize what changed.
 
-The menu AI assistant will offer:
+The menu the assistant will offer:
 
 ```
 What would you like to update? (pick numbers, comma-separated, or "all")
@@ -31,7 +31,7 @@ What would you like to update? (pick numbers, comma-separated, or "all")
 
 ## Remote agents (automate the recurring ones)
 
-The recurring items in the menu (1, 2, 4, 5, 6) can be handled by **scheduled remote agents** — AI assistant sessions that run in the cloud on a cron schedule, do the work, and open a PR for you to review/merge. You never touch the placeholders by hand.
+The recurring items in the menu (1, 2, 4, 5, 6) can be handled by **scheduled remote agents** — AI sessions that run in the cloud on a cron schedule, do the work, and open a PR for you to review/merge. You never touch the placeholders by hand.
 
 How they work:
 - Run on a cron schedule (e.g. `0 9 5 * *` = 9am on the 5th of each month).
