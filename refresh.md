@@ -52,26 +52,75 @@ To create one, run:
 
 ## 1. Calgary Market Snapshot
 
-**Where:** `index.html` — section `<section id="market-snapshot">` (~line 340)
-**Source:** https://www.creb.com/Housing_Statistics/Daily_Housing_Summary/
-**Frequency:** monthly (CREB releases monthly summaries on the 1st–3rd)
-**Automatable:** ✅ recommended — `/schedule` cron `0 9 5 * *` (9am on the 5th)
+**Where (English):** `index.html`, section `<section id="market-snapshot">` (~line 340)
+**Where (Farsi):** `fa/index.html`, same section, mirror of English. Update both pages each month.
+**Frequency:** monthly. CREB releases the prior month's summary on the **1st of each month** (e.g. April 2026 numbers ship May 1, 2026).
+**Automatable:** recommended, `/schedule` cron `0 9 1 * *` (9am on the 1st of each month).
 
-Update these seven values + the "Last updated" date:
+### Authoritative source
 
-| Value | `data-stat` attribute |
-| --- | --- |
-| Benchmark Price | `benchmark-price` |
-| Year-over-Year change | `yoy-change` |
-| Sales (units this month) | `sales` |
-| New Listings | `new-listings` |
-| Median Days on Market | `days-on-market` |
-| Months of Supply | `months-supply` |
-| Sale-to-List Ratio | `sale-to-list` |
+The PDF "Calgary Monthly Short Summary" is the cleanest machine-readable source:
 
-Also update `data-market-updated` with the current month/year (e.g. `April 2026`).
+```
+https://www.creb.com/-/media/Public/CREBcom/Housing_Statistics/Calgary_Monthly_Short_Summary.pdf
+```
 
-If the YoY change is negative, also swap the CSS class on that element from `market-stat-up` to `market-stat-down` (color flips green → red).
+This file always points at the *latest* month, so the URL never changes. To extract numbers:
+
+```bash
+curl -sLo /tmp/creb.pdf 'https://www.creb.com/-/media/Public/CREBcom/Housing_Statistics/Calgary_Monthly_Short_Summary.pdf'
+pdftotext /tmp/creb.pdf -
+```
+
+Backup / context source: the press release at `https://www.creb.com/News/Media_Releases/<YYYY>/<Month>/<MonthName_YYYY>_Stats/` (e.g. `.../2026/May/April_2026_Stats/`).
+
+### Mapping CREB output to data-stat attributes
+
+After running `pdftotext`, the relevant block looks like:
+
+```
+SALES                  2,104    -5.7% Y/Y
+NEW LISTINGS           3,829    -5.2% Y/Y
+INVENTORY              5,973    +1.8% Y/Y
+TOTAL RESIDENTIAL PRICE  $568,800   -3.5% Y/Y
+```
+
+Plus a paragraph with: "the months of supply remained just below three" and "the sales-to-new-listings ratio remained at 55 per cent".
+
+Update these seven values + the "Last updated" date in *both* `index.html` and `fa/index.html`:
+
+| `data-stat` | Source field | Example (Apr 2026) |
+| --- | --- | --- |
+| `benchmark-price` | TOTAL RESIDENTIAL PRICE | `$568,800` |
+| `yoy-change` | YoY % under benchmark | `-3.5%` |
+| `sales` | SALES | `2,104` |
+| `new-listings` | NEW LISTINGS | `3,829` |
+| `inventory` | INVENTORY | `5,973` |
+| `months-supply` | "months of supply" sentence | `2.8` |
+| `sales-to-listings` | "sales-to-new-listings ratio" sentence | `55%` |
+
+Also update:
+- `data-market-updated` with the report month (e.g. `April 2026`)
+- The YoY meta line `vs. April 2025` to match
+- The Farsi report month (e.g. `آوریل ۲۰۲۶`)
+
+### Color flip when YoY is negative
+
+The YoY card uses one of two CSS classes depending on direction:
+
+- `market-stat-up` (green) when YoY is positive
+- `market-stat-down` (red) when YoY is negative
+
+Swap the class on the `<span class="market-stat-value …" data-stat="yoy-change">` element when sign changes. Same swap on both English and Farsi pages.
+
+### Smell-test before committing
+
+- Benchmark price: should be in the $400k–$800k range for total residential.
+- Sales: typically 1,500–3,500/month.
+- Months of supply: under 3 = sellers' market, 3–4 = balanced, over 4 = buyers'.
+- Sales-to-listings ratio: 40–70% for a healthy market. Outside that range, double-check the source.
+
+If any number is way off these bands, you probably grabbed the wrong row from the PDF, recheck.
 
 ---
 
