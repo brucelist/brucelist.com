@@ -73,11 +73,11 @@
           '<div class="row g-2">' +
             '<div class="col-md-6">' +
               '<label for="cm-name" class="form-label">Name</label>' +
-              '<input type="text" class="form-control" id="cm-name" name="name" required>' +
+              '<input type="text" class="form-control" id="cm-name" name="name" autocomplete="name" required>' +
             '</div>' +
             '<div class="col-md-6">' +
               '<label for="cm-phone" class="form-label">Phone</label>' +
-              '<input type="tel" class="form-control" id="cm-phone" name="phone" required>' +
+              '<input type="tel" class="form-control" id="cm-phone" name="phone" autocomplete="tel" required>' +
             '</div>' +
             '<div class="col-12">' +
               '<label for="cm-time" class="form-label">Best time to call</label>' +

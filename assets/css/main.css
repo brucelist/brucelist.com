@@ -1,9 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
 :root {
   --primary-color: #f97352;
   --faded-color: #fac6b9;
 }
-
-@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 html {
   scroll-behavior: smooth;
@@ -1428,8 +1428,9 @@ body.call-modal-open {
   flex-direction: row-reverse;
 }
 
-/* Slider container is forced LTR so tiny-slider math works; restore RTL on each slide. */
-[dir="rtl"] .testimonial-slider[dir="ltr"] .single-cat {
+/* Slider parent is forced LTR so tiny-slider math works; restore RTL on each slide. */
+[lang="fa-CA"] .testimonial-slider .single-cat,
+[lang="fa"] .testimonial-slider .single-cat {
   direction: rtl;
   text-align: right;
 }
