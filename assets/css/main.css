@@ -1057,6 +1057,105 @@ ul.icon li span {
   }
 }
 
+.market-asterisk {
+  background: none;
+  border: none;
+  color: var(--primary-color, #f97352);
+  font-size: 0.6em;
+  vertical-align: super;
+  cursor: pointer;
+  padding: 0 4px;
+  margin: 0 2px;
+  line-height: 1;
+  font-weight: 700;
+  transition: opacity 0.15s ease;
+}
+
+.market-asterisk:hover,
+.market-asterisk:focus {
+  opacity: 0.7;
+  outline: none;
+}
+
+.market-sources {
+  margin-top: 28px;
+}
+
+.market-sources-card {
+  background: #ffffff;
+  border: 1px solid #e6e9ef;
+  border-radius: 8px;
+  padding: 28px 32px;
+  box-shadow: 0 2px 8px rgba(20, 30, 60, 0.04);
+}
+
+.market-sources-card h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1f36;
+  margin-bottom: 12px;
+}
+
+.market-sources-card > p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #4a5060;
+  margin-bottom: 18px;
+}
+
+.market-sources-table {
+  width: 100%;
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+
+.market-sources-table th {
+  font-weight: 600;
+  color: #1a1f36;
+  border-bottom: 2px solid #e6e9ef;
+  padding: 8px 10px;
+  text-align: left;
+}
+
+.market-sources-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #f0f2f6;
+  vertical-align: top;
+  color: #4a5060;
+}
+
+[dir="rtl"] .market-sources-table th {
+  text-align: right;
+}
+
+.market-sources-links {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #4a5060;
+  margin-bottom: 12px;
+}
+
+.market-sources-links a {
+  color: var(--primary-color, #f97352);
+  text-decoration: underline;
+}
+
+.market-sources-disclaimer {
+  font-size: 13px;
+  color: #6c757d;
+  font-style: italic;
+  margin: 0;
+}
+
+@media (max-width: 575px) {
+  .market-sources-card {
+    padding: 20px 18px;
+  }
+  .market-sources-table {
+    font-size: 13px;
+  }
+}
+
 /* ==================== Smart Call Modal ==================== */
 .call-modal {
   position: fixed;

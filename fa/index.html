@@ -329,7 +329,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title">
-                        <h2>نگاهی به بازار کلگری</h2>
+                        <h2>نگاهی به بازار کلگری<button type="button" class="market-asterisk" data-market-sources aria-label="نمایش منابع این آمار" aria-expanded="false" aria-controls="market-sources">*</button></h2>
                         <p>شاخص‌های کلیدی بازار املاک مسکونی کلگری.
                             <span class="market-updated">آخرین به‌روزرسانی: <strong data-market-updated>آوریل ۲۰۲۶</strong></span>
                         </p>
@@ -388,6 +388,78 @@
                 </div>
             </div>
 
+            <div id="market-sources" class="market-sources" hidden>
+                <div class="row">
+                    <div class="col-lg-10 offset-lg-1 col-12">
+                        <div class="market-sources-card">
+                            <h3>این اعداد چگونه محاسبه شده‌اند؟</h3>
+                            <p>
+                                همه ارقام از <strong>هیئت املاک کلگری (CREB)</strong>،
+                                <em class="ltr">City of Calgary Monthly Statistics, April 2026</em>،
+                                گرفته شده‌اند. CREB آمار ماه گذشته را در اولین روز هر ماه منتشر می‌کند.
+                            </p>
+                            <div class="table-responsive">
+                                <table class="table market-sources-table">
+                                    <thead>
+                                        <tr>
+                                            <th>شاخص</th>
+                                            <th>مقدار</th>
+                                            <th>منبع</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>قیمت معیار</td>
+                                            <td class="ltr">$568,800</td>
+                                            <td>خلاصه آمار ماهانه، صفحه ۱، کادر "Total Residential Price"</td>
+                                        </tr>
+                                        <tr>
+                                            <td>تغییر سالانه</td>
+                                            <td class="ltr">−3.5%</td>
+                                            <td>خلاصه آمار ماهانه، صفحه ۱، "Y/Y" زیر Total Residential Price</td>
+                                        </tr>
+                                        <tr>
+                                            <td>فروش</td>
+                                            <td class="ltr">2,104</td>
+                                            <td>خلاصه آمار ماهانه، صفحه ۱، کادر "Sales"</td>
+                                        </tr>
+                                        <tr>
+                                            <td>آگهی‌های جدید</td>
+                                            <td class="ltr">3,829</td>
+                                            <td>خلاصه آمار ماهانه، صفحه ۱، کادر "New Listings"</td>
+                                        </tr>
+                                        <tr>
+                                            <td>موجودی</td>
+                                            <td class="ltr">5,973</td>
+                                            <td>خلاصه آمار ماهانه، صفحه ۱، کادر "Inventory"</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ماه‌های موجودی</td>
+                                            <td class="ltr">2.8</td>
+                                            <td>متن بیانیه: «the months of supply remained just below three»</td>
+                                        </tr>
+                                        <tr>
+                                            <td>نسبت فروش به آگهی</td>
+                                            <td class="ltr">55%</td>
+                                            <td>متن بیانیه: «the sales-to-new-listings ratio remained at 55 per cent»</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="market-sources-links">
+                                <strong>اسناد اصلی CREB:</strong><br>
+                                <a href="https://www.creb.com/-/media/Public/CREBcom/Housing_Statistics/Calgary_Monthly_Short_Summary.pdf" target="_blank" rel="noopener" class="ltr">Calgary Monthly Short Summary (PDF)</a>
+                                · <a href="https://www.creb.com/News/Media_Releases/2026/May/April_2026_Stats/" target="_blank" rel="noopener" class="ltr">April 2026 Stats Press Release</a>
+                                · <a href="https://www.creb.com/Housing_Statistics/" target="_blank" rel="noopener" class="ltr">CREB Housing Statistics hub</a>
+                            </p>
+                            <p class="market-sources-disclaimer">
+                                داده‌ها به‌عنوان شاخص کلی ارائه می‌شود و بازتاب ارزش هیچ ملک خاصی نیست.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="row mt-4">
                 <div class="col-lg-8 offset-lg-2 col-12 text-center">
                     <p class="market-context">
@@ -399,14 +471,31 @@
                         <a href="#contact" class="btn btn-primary btn-lg me-2 mb-2">دریافت تحلیل بازار اختصاصی</a>
                         <a href="tel:+14038912345" class="btn btn-outline-secondary btn-lg mb-2" data-call-cta>تماس با بهروز: <span class="ltr">403-891-2345</span></a>
                     </p>
-                    <p class="market-source">
-                        منبع: <a href="https://www.creb.com/Housing_Statistics/" target="_blank" rel="noopener">هیئت املاک کلگری (CREB)</a>.
-                        داده‌ها به‌عنوان شاخص کلی ارائه می‌شود و بازتاب ارزش هیچ ملک خاصی نیست.
-                    </p>
                 </div>
             </div>
         </div>
     </section>
+
+    <script>
+        // Toggle market-snapshot sources panel
+        (function () {
+            var btn = document.querySelector('[data-market-sources]');
+            var panel = document.getElementById('market-sources');
+            if (!btn || !panel) return;
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
+                var open = panel.hasAttribute('hidden') ? false : true;
+                if (open) {
+                    panel.setAttribute('hidden', '');
+                    btn.setAttribute('aria-expanded', 'false');
+                } else {
+                    panel.removeAttribute('hidden');
+                    btn.setAttribute('aria-expanded', 'true');
+                    panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            });
+        })();
+    </script>
 
     <section class="hero-area buy-hero overlay how-works section">
         <div class="container">

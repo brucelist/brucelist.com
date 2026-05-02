@@ -344,7 +344,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title">
-                        <h2>Calgary Market Snapshot</h2>
+                        <h2>Calgary Market Snapshot<button type="button" class="market-asterisk" data-market-sources aria-label="Show sources for these stats" aria-expanded="false" aria-controls="market-sources">*</button></h2>
                         <p>Key indicators for the Calgary residential real estate market.
                             <span class="market-updated">Last updated: <strong data-market-updated>April 2026</strong></span>
                         </p>
@@ -403,6 +403,79 @@
                 </div>
             </div>
 
+            <div id="market-sources" class="market-sources" hidden>
+                <div class="row">
+                    <div class="col-lg-10 offset-lg-1 col-12">
+                        <div class="market-sources-card">
+                            <h3>How these numbers were calculated</h3>
+                            <p>
+                                All figures are sourced from the <strong>Calgary Real Estate Board (CREB)</strong>
+                                <em>City of Calgary Monthly Statistics, April 2026</em>. CREB releases the prior
+                                month's data on the 1st of each month.
+                            </p>
+                            <div class="table-responsive">
+                                <table class="table market-sources-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Stat</th>
+                                            <th>Value</th>
+                                            <th>Source</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Benchmark Price</td>
+                                            <td>$568,800</td>
+                                            <td>Monthly Stats Summary, page 1, "Total Residential Price" headline box</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Year-over-Year Change</td>
+                                            <td>−3.5%</td>
+                                            <td>Monthly Stats Summary, page 1, "Y/Y" under Total Residential Price</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sales</td>
+                                            <td>2,104</td>
+                                            <td>Monthly Stats Summary, page 1, "Sales" headline box</td>
+                                        </tr>
+                                        <tr>
+                                            <td>New Listings</td>
+                                            <td>3,829</td>
+                                            <td>Monthly Stats Summary, page 1, "New Listings" headline box</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Inventory</td>
+                                            <td>5,973</td>
+                                            <td>Monthly Stats Summary, page 1, "Inventory" headline box</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Months of Supply</td>
+                                            <td>2.8</td>
+                                            <td>Press release narrative: "the months of supply remained just below three"</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sales-to-Listings</td>
+                                            <td>55%</td>
+                                            <td>Press release narrative: "the sales-to-new-listings ratio remained at 55 per cent"</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="market-sources-links">
+                                <strong>Original CREB documents:</strong><br>
+                                <a href="https://www.creb.com/-/media/Public/CREBcom/Housing_Statistics/Calgary_Monthly_Short_Summary.pdf" target="_blank" rel="noopener">Calgary Monthly Short Summary (PDF)</a>
+                                · <a href="https://www.creb.com/News/Media_Releases/2026/May/April_2026_Stats/" target="_blank" rel="noopener">April 2026 Stats Press Release</a>
+                                · <a href="https://www.creb.com/Housing_Statistics/" target="_blank" rel="noopener">CREB Housing Statistics hub</a>
+                            </p>
+                            <p class="market-sources-disclaimer">
+                                Data is provided as a general indicator and does not reflect the value of any
+                                specific property.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="row mt-4">
                 <div class="col-lg-8 offset-lg-2 col-12 text-center">
                     <p class="market-context">
@@ -414,14 +487,31 @@
                         <a href="#contact" class="btn btn-primary btn-lg me-2 mb-2">Get a Personalized Market Analysis</a>
                         <a href="tel:+14038912345" class="btn btn-outline-secondary btn-lg mb-2" data-call-cta>Call Bruce: 403-891-2345</a>
                     </p>
-                    <p class="market-source">
-                        Source: <a href="https://www.creb.com/Housing_Statistics/" target="_blank" rel="noopener">Calgary Real Estate Board</a>.
-                        Data is provided as a general indicator and does not reflect the value of any specific property.
-                    </p>
                 </div>
             </div>
         </div>
     </section>
+
+    <script>
+        // Toggle market-snapshot sources panel
+        (function () {
+            var btn = document.querySelector('[data-market-sources]');
+            var panel = document.getElementById('market-sources');
+            if (!btn || !panel) return;
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
+                var open = panel.hasAttribute('hidden') ? false : true;
+                if (open) {
+                    panel.setAttribute('hidden', '');
+                    btn.setAttribute('aria-expanded', 'false');
+                } else {
+                    panel.removeAttribute('hidden');
+                    btn.setAttribute('aria-expanded', 'true');
+                    panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            });
+        })();
+    </script>
 
     <section class="hero-area buy-hero overlay how-works section">
         <div class="container">
