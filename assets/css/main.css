@@ -1427,3 +1427,9 @@ body.call-modal-open {
 [dir="rtl"] .step-actions {
   flex-direction: row-reverse;
 }
+
+/* Slider container is forced LTR so tiny-slider math works; restore RTL on each slide. */
+[dir="rtl"] .testimonial-slider[dir="ltr"] .single-cat {
+  direction: rtl;
+  text-align: right;
+}
