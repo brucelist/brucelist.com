@@ -14,6 +14,11 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/ico/favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
 
+    <!-- Preconnect to font + CDN origins for faster first paint -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
     <link
         href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
@@ -25,9 +30,34 @@
     <link rel="stylesheet" href="assets/css/tiny-slider.css" />
     <link rel="stylesheet" href="assets/css/main.css" />
 
+    <!-- Google Tag Manager -->
+    <!-- TODO: replace GTM-XXXXXXX with real GTM container ID -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Google tag (gtag.js) - GA4 -->
+    <!-- TODO: replace G-XXXXXXXXXX with real GA4 ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
 </head>
 
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <!-- TODO: replace GTM-XXXXXXX with real GTM container ID -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <header class="header navbar-area bg-light">
         <div class="container">
             <div class="row align-items-center">
@@ -55,7 +85,7 @@
                             <p><a href="https://www.creb.com/Housing_Statistics/Daily_Housing_Summary/" target="_blank"
                                     class="btn btn-lg btn-outline-light">Calgary Market Statistics</a></p>
                             <img src="assets/images/ccc-logo.png" class="commercial badge-logo" alt="Commercial Realtor logo">
-                            <img src="assets/images/LS20clr.png" class="20years badge-logo" alt="Commercial Realtor logo">
+                            <img src="assets/images/LS20clr.png" class="20years badge-logo" alt="Commercial Realtor logo" loading="lazy">
                             <section class="categories mt-5">
                                 <div class="container">
                                     <div class="cat-inner">
@@ -133,7 +163,7 @@
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-4 col-md-12 col-12">
                     <div class="content-left">
-                        <img src="assets/images/bruce.png" alt="#">
+                        <img src="assets/images/bruce.png" alt="#" loading="lazy">
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-12 col-12">
@@ -207,6 +237,68 @@
                             403-891-2345 to get started.</p>
                     </div>
 
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="mortgage-calc section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 col-12">
+                    <div class="section-title text-center mb-4">
+                        <h2>Mortgage Calculator</h2>
+                        <p>Estimate your monthly mortgage payment using the standard Canadian
+                            semi-annually-compounded formula. For planning purposes only &mdash; talk to a licensed
+                            mortgage broker for a real quote.</p>
+                    </div>
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <form id="mortgage-form" class="row g-3" onsubmit="return false;">
+                                <div class="col-md-6">
+                                    <label for="mc-price" class="form-label">Home price (CAD $)</label>
+                                    <input type="number" class="form-control" id="mc-price" min="0" step="1000"
+                                        value="600000" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="mc-down" class="form-label">Down payment</label>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" id="mc-down" min="0" step="1000"
+                                            value="20" required>
+                                        <select class="form-select" id="mc-down-type" style="max-width:5rem;">
+                                            <option value="percent" selected>%</option>
+                                            <option value="dollar">$</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="mc-rate" class="form-label">Interest rate (% per year)</label>
+                                    <input type="number" class="form-control" id="mc-rate" min="0" step="0.01"
+                                        value="5.25" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="mc-years" class="form-label">Amortization (years)</label>
+                                    <input type="number" class="form-control" id="mc-years" min="1" max="35"
+                                        step="1" value="25" required>
+                                </div>
+                                <div class="col-12">
+                                    <button type="button" class="btn btn-primary" id="mc-calc">Calculate</button>
+                                </div>
+                            </form>
+                            <hr />
+                            <div id="mc-result" class="mt-3">
+                                <p class="mb-1"><strong>Monthly payment:</strong>
+                                    <span id="mc-payment">&mdash;</span></p>
+                                <p class="mb-1 text-muted small">
+                                    Loan amount: <span id="mc-loan">&mdash;</span> &middot;
+                                    Effective monthly rate: <span id="mc-mrate">&mdash;</span>
+                                </p>
+                            </div>
+                            <div class="alert alert-light border mt-3 mb-0 text-center">
+                                <strong>Want personalized advice?</strong>
+                                Call Bruce: <a href="tel:+14038912345">403-891-2345</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -405,7 +497,7 @@
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-4 col-md-12 col-12">
                     <div class="content-left">
-                        <img src="assets/images/bruce.png" alt="#">
+                        <img src="assets/images/bruce.png" alt="#" loading="lazy">
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-12 col-12">
@@ -435,7 +527,7 @@
         crossorigin="anonymous"></script>
     <script src="assets/js/tiny-slider.js"></script>
     <script type="text/javascript">
-        //========= Slider 
+        //========= Slider
         tns({
             container: '.testimonial-slider',
             items: 1,
@@ -451,6 +543,93 @@
             autoplayHoverPause: true,
 
         });
+    </script>
+
+    <!-- ==================== Analytics conversion events ==================== -->
+    <script type="text/javascript">
+        (function () {
+            // Delegated click listener for tel: and mailto: links anywhere on the page.
+            document.addEventListener('click', function (e) {
+                var a = e.target.closest && e.target.closest('a[href]');
+                if (!a) return;
+                var href = a.getAttribute('href') || '';
+                if (typeof gtag !== 'function') return;
+                if (href.indexOf('tel:') === 0) {
+                    gtag('event', 'phone_click', {
+                        event_category: 'engagement',
+                        event_label: href.replace('tel:', '')
+                    });
+                } else if (href.indexOf('mailto:') === 0) {
+                    gtag('event', 'email_click', {
+                        event_category: 'engagement',
+                        event_label: href.replace('mailto:', '')
+                    });
+                }
+            }, true);
+
+            // Delegated form submit listener for any future lead-capture forms.
+            document.addEventListener('submit', function (e) {
+                var form = e.target;
+                if (!form || form.tagName !== 'FORM') return;
+                if (typeof gtag !== 'function') return;
+                gtag('event', 'lead_submit', {
+                    event_category: 'lead',
+                    event_label: form.id || form.name || form.action || 'unknown_form'
+                });
+            }, true);
+        })();
+    </script>
+
+    <!-- ==================== Mortgage calculator ==================== -->
+    <script type="text/javascript">
+        (function () {
+            var form = document.getElementById('mortgage-form');
+            if (!form) return;
+
+            var fmtCAD = new Intl.NumberFormat('en-CA', {
+                style: 'currency', currency: 'CAD', maximumFractionDigits: 2
+            });
+
+            function calc() {
+                var price = parseFloat(document.getElementById('mc-price').value) || 0;
+                var downRaw = parseFloat(document.getElementById('mc-down').value) || 0;
+                var downType = document.getElementById('mc-down-type').value;
+                var ratePct = parseFloat(document.getElementById('mc-rate').value) || 0;
+                var years = parseFloat(document.getElementById('mc-years').value) || 0;
+
+                var down = downType === 'percent' ? price * (downRaw / 100) : downRaw;
+                var principal = Math.max(price - down, 0);
+
+                // Canadian mortgages compound semi-annually (not in advance).
+                // Convert nominal annual rate to an effective monthly rate that
+                // matches semi-annual compounding:
+                //   monthlyRate = (1 + annualRate/2)^(2/12) - 1
+                // Then use the standard amortization payment formula.
+                var annual = ratePct / 100;
+                var monthlyRate = Math.pow(1 + annual / 2, 2 / 12) - 1;
+                var n = years * 12;
+
+                var payment;
+                if (principal <= 0 || n <= 0) {
+                    payment = 0;
+                } else if (monthlyRate === 0) {
+                    payment = principal / n;
+                } else {
+                    payment = principal * (monthlyRate * Math.pow(1 + monthlyRate, n)) /
+                        (Math.pow(1 + monthlyRate, n) - 1);
+                }
+
+                document.getElementById('mc-payment').textContent =
+                    isFinite(payment) ? fmtCAD.format(payment) : '—';
+                document.getElementById('mc-loan').textContent = fmtCAD.format(principal);
+                document.getElementById('mc-mrate').textContent =
+                    (monthlyRate * 100).toFixed(4) + '%';
+            }
+
+            document.getElementById('mc-calc').addEventListener('click', calc);
+            form.addEventListener('input', calc);
+            calc();
+        })();
     </script>
 </body>
 
