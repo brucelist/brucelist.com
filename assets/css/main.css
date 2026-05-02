@@ -1,8 +1,35 @@
-@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
-
 :root {
-  --primary-color: #f97352;
+  --primary-color: #d8552f;
   --faded-color: #fac6b9;
+}
+
+/* Skip-to-main-content link, visually hidden until focused. */
+.skip-link {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: #ffffff;
+  color: #081828;
+  padding: 10px 16px;
+  border: 2px solid #d8552f;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  z-index: 10000;
+  transform: translateY(-150%);
+  transition: transform 0.15s ease;
+}
+
+[dir="rtl"] .skip-link {
+  left: auto;
+  right: 8px;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  transform: translateY(0);
+  outline: 3px solid #081828;
+  outline-offset: 2px;
 }
 
 html {
@@ -13,9 +40,9 @@ body {
   font-family: "Jost", sans-serif;
   font-weight: normal;
   font-style: normal;
-  color: #888;
+  color: #4a5060;
   overflow-x: hidden;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 p {
@@ -211,6 +238,19 @@ ol {
   background: #fff;
 }
 
+/* Larger tap targets in header link bar (matters for 50+ users on mobile). */
+.header .link-secondary {
+  display: inline-block;
+  padding: 8px 4px;
+  line-height: 1.4;
+}
+
+@media (max-width: 575px) {
+  .header .link-secondary {
+    padding: 10px 6px;
+  }
+}
+
 .navbar-area {
   position: absolute;
   top: 0;
@@ -335,36 +375,28 @@ ol {
   width: 46px;
   height: 46px;
   cursor: pointer;
-  z-index: 2;
+  z-index: 99;
   color: #fff;
-  font-size: 17px;
-  background: var(--primary-color);
+  font-size: 14px;
+  background: #d8552f;
   border: none;
   padding: 2px 5px;
   border-radius: 50%;
-  -webkit-transition: all .3s ease-out 0s;
-  transition: all .3s ease-out 0s;
   position: absolute;
-  z-index: 99;
   top: 50%;
-  font-size: 14px;
-  color: #fff;
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: all 0.4s ease;
-  transition: all 0.4s ease;
-}
-
-.categories .tns-controls button:hover {
-  background-color: #081828;
-  color: #fff;
-}
-
-.categories:hover .tns-controls button {
   opacity: 1;
   visibility: visible;
+  transition: background-color 0.2s ease;
+}
+
+.categories .tns-controls button:hover,
+.categories .tns-controls button:focus-visible {
+  background-color: #081828;
+  color: #fff;
+  outline: 2px solid #d8552f;
+  outline-offset: 3px;
 }
 
 .categories .tns-controls button:first-child {
@@ -658,11 +690,11 @@ ul.icon li span {
 }
 
 .btn-primary-brand {
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
+  background-color: #d8552f;
+  border-color: #d8552f;
   color: #fff;
   font-family: 'Jost', sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   padding: 12px 28px;
   border-radius: 4px;
   transition: all 0.3s ease;
@@ -673,6 +705,7 @@ ul.icon li span {
   background-color: #081828;
   border-color: #081828;
   color: #fff;
+  box-shadow: 0 0 0 3px rgba(216, 85, 47, 0.4);
 }
 
 .form-success-msg {
@@ -1017,11 +1050,24 @@ ul.icon li span {
 }
 
 .market-stat-up {
-  color: #198754;
+  color: #1f7a4d;
 }
 
 .market-stat-down {
-  color: #dc3545;
+  color: #b3261e;
+}
+
+/* Non-color cue: arrow icons before YoY value (added via ::before from data attr in HTML) */
+.market-stat-up::before {
+  content: "▲ ";
+  font-size: 0.75em;
+  vertical-align: middle;
+}
+
+.market-stat-down::before {
+  content: "▼ ";
+  font-size: 0.75em;
+  vertical-align: middle;
 }
 
 .market-stat-meta {
@@ -1057,24 +1103,32 @@ ul.icon li span {
   }
 }
 
+.market-sources-toggle {
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
 .market-asterisk {
   background: none;
   border: none;
-  color: var(--primary-color, #f97352);
-  font-size: 0.6em;
-  vertical-align: super;
+  color: #d8552f;
+  font-size: 15px;
+  font-weight: 600;
   cursor: pointer;
-  padding: 0 4px;
-  margin: 0 2px;
-  line-height: 1;
-  font-weight: 700;
-  transition: opacity 0.15s ease;
+  padding: 8px 14px;
+  border-radius: 4px;
+  text-decoration: underline;
+  transition: background 0.15s ease;
 }
 
-.market-asterisk:hover,
-.market-asterisk:focus {
-  opacity: 0.7;
-  outline: none;
+.market-asterisk:hover {
+  background: rgba(216, 85, 47, 0.08);
+}
+
+.market-asterisk:focus-visible {
+  outline: 2px solid #d8552f;
+  outline-offset: 2px;
 }
 
 .market-sources {
