@@ -4,8 +4,7 @@
 (function () {
   'use strict';
 
-  // TODO: replace YOUR_FORM_ID with the real Formspree form ID for callbacks.
-  var CALLBACK_FORM_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+  var CALLBACK_FORM_ENDPOINT = 'https://formspree.io/f/mqenaynq';
 
   var PHONE_DISPLAY = '403-891-2345';
   var PHONE_E164    = '+14038912345';
@@ -171,13 +170,6 @@
         event_category: 'lead',
         event_label: 'call_modal'
       });
-    }
-
-    // If endpoint not configured, surface a friendly note.
-    if (CALLBACK_FORM_ENDPOINT.indexOf('YOUR_FORM_ID') !== -1) {
-      showFeedback(feedback, 'error',
-        'Callback form is not yet connected. Please call ' + PHONE_DISPLAY + '.');
-      return;
     }
 
     if (submitBtn) {
