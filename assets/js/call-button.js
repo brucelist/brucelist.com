@@ -111,6 +111,15 @@
       copyPhone();
     });
 
+    // Email button — try mailto:, fall back to contact form if no mail client.
+    var emailBtn = modal.querySelector('.call-modal-email');
+    if (emailBtn) {
+      emailBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        handleEmailClick();
+      });
+    }
+
     // Callback form
     var form = modal.querySelector('.call-modal-form');
     form.addEventListener('submit', function (e) {
@@ -119,6 +128,33 @@
     });
 
     return modal;
+  }
+
+  function handleEmailClick() {
+    var didBlur = false;
+    var onBlur = function () { didBlur = true; };
+    window.addEventListener('blur', onBlur);
+
+    window.location.href = 'mailto:' + EMAIL_ADDR;
+
+    setTimeout(function () {
+      window.removeEventListener('blur', onBlur);
+      if (didBlur) return;
+
+      // No mail client took focus — fall back to the contact form.
+      closeModal();
+      var contactOnPage = document.getElementById('contact');
+      if (contactOnPage) {
+        contactOnPage.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        var firstInput = contactOnPage.querySelector('input, textarea, select');
+        if (firstInput) {
+          setTimeout(function () { firstInput.focus({ preventScroll: true }); }, 700);
+        }
+      } else {
+        // No contact section on this page — go to the homepage's contact form.
+        window.location.href = '/#contact';
+      }
+    }, 1200);
   }
 
   function copyPhone() {
